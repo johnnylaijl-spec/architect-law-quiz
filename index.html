@@ -1,0 +1,153 @@
+<!doctype html>
+<html lang="zh-Hant">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <meta name="description" content="110、111 年建築師營建法規與實務互動題庫，支援作答、評分、進度保存與錯題檢視。" />
+    <meta name="theme-color" content="#16324f" />
+    <title>建築師營建法規歷屆測驗</title>
+    <link rel="stylesheet" href="styles.css" />
+  </head>
+  <body>
+    <div class="blueprint-grid" aria-hidden="true"></div>
+    <header class="site-header">
+      <a class="brand" href="#" aria-label="回到首頁">
+        <span class="brand-mark">A</span>
+        <span>
+          <strong>ARCH // EXAM</strong>
+          <small>建築師法規題庫</small>
+        </span>
+      </a>
+      <span class="source-badge">考選部官方試題</span>
+    </header>
+
+    <main>
+      <section id="landing" class="landing" aria-labelledby="landing-title">
+        <div class="hero-copy">
+          <p class="eyebrow">營建法規與實務 · 歷屆試題</p>
+          <h1 id="landing-title">把法規知識，<br /><em>練成得分能力。</em></h1>
+          <p class="hero-description">
+            收錄 110、111 年建築師考試完整題目，逐題作答、即時計算成績，並整理錯題供你回頭複習。
+          </p>
+          <dl class="hero-stats">
+            <div><dt>2</dt><dd>年度</dd></div>
+            <div><dt>160</dt><dd>題目</dd></div>
+            <div><dt>100</dt><dd>滿分</dd></div>
+          </dl>
+        </div>
+
+        <div class="start-card" aria-labelledby="choose-title">
+          <div class="card-kicker">START A SESSION</div>
+          <h2 id="choose-title">選擇考試年度</h2>
+          <p>每份 80 題，每題 1.25 分。作答進度會保存在目前瀏覽器。</p>
+          <div class="year-options" role="radiogroup" aria-label="考試年度">
+            <button class="year-option is-selected" type="button" data-year="110" role="radio" aria-checked="true">
+              <span class="year-number">110</span>
+              <span><strong>民國 110 年</strong><small>80 題 · 標準答案</small></span>
+            </button>
+            <button class="year-option" type="button" data-year="111" role="radio" aria-checked="false">
+              <span class="year-number">111</span>
+              <span><strong>民國 111 年</strong><small>80 題 · 含更正答案</small></span>
+            </button>
+          </div>
+          <button id="start-button" class="primary-button" type="button">
+            <span>開始作答</span><span aria-hidden="true">→</span>
+          </button>
+          <button id="fresh-button" class="text-button is-hidden" type="button">清除紀錄並重新開始</button>
+          <p class="fine-print">本測驗供學習練習使用，題目與答案以考選部公告為準。</p>
+        </div>
+      </section>
+
+      <section id="quiz" class="quiz-shell is-hidden" aria-labelledby="quiz-title">
+        <div class="quiz-toolbar">
+          <div>
+            <p class="eyebrow">模擬測驗</p>
+            <h1 id="quiz-title"><span id="quiz-year">110</span> 年 · 營建法規與實務</h1>
+          </div>
+          <div class="toolbar-actions">
+            <button id="back-home" class="ghost-button" type="button">返回選擇</button>
+            <button id="submit-button" class="submit-button" type="button">交卷評分</button>
+          </div>
+        </div>
+
+        <div class="progress-strip" aria-label="作答進度">
+          <div class="progress-copy"><span>已作答 <strong id="answered-count">0</strong> / 80</span><span id="progress-percent">0%</span></div>
+          <div class="progress-track"><span id="progress-bar"></span></div>
+        </div>
+
+        <div class="quiz-layout">
+          <aside class="question-nav" aria-label="題號導覽">
+            <div class="nav-heading">
+              <div><span>QUESTION MAP</span><strong>題號一覽</strong></div>
+              <div class="legend"><span><i class="dot answered"></i>已答</span><span><i class="dot current"></i>目前</span></div>
+            </div>
+            <div id="question-grid" class="question-grid"></div>
+          </aside>
+
+          <article class="question-card" aria-live="polite">
+            <div class="question-meta">
+              <span id="question-position">QUESTION 01 / 80</span>
+              <span>每題 1.25 分</span>
+            </div>
+            <h2 id="question-text"></h2>
+            <div id="bonus-note" class="bonus-note is-hidden">本題依官方更正答案為一律給分。</div>
+            <fieldset id="options" class="options">
+              <legend class="sr-only">請選擇答案</legend>
+            </fieldset>
+            <div class="question-actions">
+              <button id="previous-button" class="secondary-button" type="button">← 上一題</button>
+              <span class="keyboard-hint">鍵盤 A–D 選答 · ← → 換題</span>
+              <button id="next-button" class="primary-button compact" type="button">下一題 →</button>
+            </div>
+          </article>
+        </div>
+      </section>
+
+      <section id="results" class="results is-hidden" aria-labelledby="results-title">
+        <div class="result-hero">
+          <div class="score-ring" aria-label="測驗分數">
+            <span id="score-value">0</span><small>分</small>
+          </div>
+          <div>
+            <p class="eyebrow">SESSION COMPLETE</p>
+            <h1 id="results-title">測驗完成</h1>
+            <p id="result-message">完成一次，就是離合格更近一步。</p>
+          </div>
+        </div>
+
+        <div class="result-stats">
+          <div><span id="correct-count">0</span><small>答對題數</small></div>
+          <div><span id="wrong-count">0</span><small>答錯題數</small></div>
+          <div><span id="unanswered-result">0</span><small>未作答</small></div>
+          <div><span id="accuracy-value">0%</span><small>作答正確率</small></div>
+        </div>
+
+        <div class="result-actions">
+          <button id="retry-button" class="primary-button compact" type="button">重新測驗</button>
+          <button id="result-home" class="secondary-button" type="button">選擇其他年度</button>
+        </div>
+
+        <div class="review-section">
+          <div class="review-header">
+            <div><p class="eyebrow">ANSWER REVIEW</p><h2>答案回顧</h2></div>
+            <div class="filter-buttons" role="group" aria-label="篩選答案">
+              <button class="filter-button is-active" type="button" data-filter="all">全部</button>
+              <button class="filter-button" type="button" data-filter="wrong">錯題</button>
+              <button class="filter-button" type="button" data-filter="unanswered">未答</button>
+            </div>
+          </div>
+          <div id="review-list" class="review-list"></div>
+        </div>
+      </section>
+    </main>
+
+    <footer>
+      <span>題目來源：考選部考畢試題查詢平臺</span>
+      <span>建築師 · 營建法規與實務 · 110–111 年</span>
+    </footer>
+
+    <div id="loading" class="loading" role="status"><span></span><p>載入題庫中…</p></div>
+    <div id="toast" class="toast" role="status" aria-live="polite"></div>
+    <script src="app.js" defer></script>
+  </body>
+</html>
